@@ -1,0 +1,4 @@
+File : A file log.
+FileLogger: A file log protocol.
+FileLogger: A file log protocol.
+FileLogger: A file log protocol.
