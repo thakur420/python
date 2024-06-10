@@ -7,7 +7,7 @@ class Circle:
         return self._radius
     
     @radius.setter
-    def radius(self,val :int):
+    def radius(self,val :int): #setter method
         if val < 0:
             raise ValueError("Radius can't be negative")
         self._radius = val

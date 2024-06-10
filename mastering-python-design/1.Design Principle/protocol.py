@@ -1,7 +1,7 @@
 from typing import Protocol
 class Logger(Protocol):
     def log(self, message:str):
-        pass
+        ...
 
 class ConsoleLogger:
     def log(self,message:str):

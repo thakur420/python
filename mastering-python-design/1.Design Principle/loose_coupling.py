@@ -1,6 +1,6 @@
 class MessageService:
     def __init__(self, sender) -> None:
-        self.sender = sender
+        self.sender = sender 
     
     def send_message(self,message):
         self.sender.send(message)
