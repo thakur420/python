@@ -1,4 +1,11 @@
 # code don't follow LSP
+class UnsupportedOperationException(Exception):
+    def __init__(self, message) -> None:
+        self.message = message
+    
+    def __str__(self) -> str:
+        return self.message
+    
 class Bird:
     def fly(self):
         pass
@@ -7,13 +14,6 @@ class Eagle(Bird):
     def fly(self):
         print("eagle is flying ...")
 
-class UnsupportedOperationException(Exception):
-    def __init__(self, message) -> None:
-        self.message = message
-    
-    def __str__(self) -> str:
-        return self.message
-    
 class Penguin(Bird):
     def fly(self):
         raise UnsupportedOperationException("Penguin can't fly ...")
@@ -28,7 +28,6 @@ class CanFly(ABC):
 
 class Bird:
     def __init__(self,name) -> None:
-        # print(f"bird init ...")
         self.name = name
 
 class Eagle(Bird,CanFly):
