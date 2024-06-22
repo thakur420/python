@@ -19,5 +19,6 @@ def test(fun):
             print(arr)
             break
     print("All test case passed")
+
 if __name__ == "__main__":
     pass
