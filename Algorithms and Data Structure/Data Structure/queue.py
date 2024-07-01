@@ -12,6 +12,14 @@ class Queue:
     
     def pop(self):
         return self.__del_beg()
+
+    def empty(self):
+        return self.head == None
+
+    def peek(self):
+        if self.empty():
+            return None
+        return self.head.data
     
     def __append(self,x):
         new_node = Node(x)
