@@ -36,6 +36,25 @@ class Tree:
             postorder(root.right)
         postorder(self.root)
 
+    def morris_inorder_traversal(self):
+        def morris_inorder(root):
+            curr = root
+            while curr != None:
+                if curr.left == None:
+                    print(curr.data, end = ' ')
+                    curr = curr.right
+                else:
+                    _ , pre = self.inorder_predecessor(curr)
+                    # print(f"inorder pred of {curr.data} is {pre.data} ...")
+                    if pre.right == None:
+                        pre.right = curr
+                        curr = curr.left
+                    else :
+                        print(curr.data,end = ' ')
+                        pre.right = None
+                        curr = curr.right
+        morris_inorder(self.root)
+
     def insert_node(self,x):
         def insert(root,x):
             if root == None:
@@ -61,18 +80,19 @@ class Tree:
             return search(root.right,x)
         return search(self.root,x)
     
-    def get_inorder_predecessor(self,root):
+    def inorder_predecessor(self,root):
         if root == None:
             return None
-        par = None
-        while root.right != None:
-            par = root
-            root = root.right
-        return par, root
+        # print(f"finding inorder pred of {root.data} ...")
+        curr,par = root.left,None
+        while curr.right != None and curr.right != root:
+            par = curr
+            curr = curr.right
+        return par, curr
     
     def delete_node(self,x):
         def delete_two_child_node(root):
-            par, pre = self.get_inorder_predecessor(root.left)
+            par, pre = self.inorder_predecessor(root)
             if par == None:
                 root.left = pre.left
             else:
@@ -116,8 +136,8 @@ if __name__ == "__main__":
     # print(f"testing for {n} random array of input")
     for i in range(n):
         m = random.randint(1,25)
-        arr = [random.randint(1,100) for _ in range(m)]
-        # arr = [10, 5, 15, 2, 5, 13, 22, 1, 14]
+        # arr = [random.randint(1,100) for _ in range(m)]
+        arr = [10, 5, 15, 2, 5, 13, 22, 1, 14]
         for ele in arr:
             tree.insert_node(ele)
         while tree.root != None:
@@ -127,6 +147,8 @@ if __name__ == "__main__":
                 print("Nodes of tree are not in right order")
             print()
             tree.preorder_traversal()
+            print("\nMorris Inorder ...")
+            tree.morris_inorder_traversal()
             node = random.randint(1,100)
             print(f"\nNode {node} is present = {tree.search_node(node)}")
             val = input("\nEnter node val to delete:\n")
