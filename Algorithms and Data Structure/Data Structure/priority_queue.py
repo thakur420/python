@@ -49,10 +49,11 @@ class PriorityQueue:
 
     def decrease_key(self,key,priority):
         if key not in self.map:
-            return
-        key_idx = self.map[key]
-        self.heap[key_idx] = (priority,key)
-        self._make_heap(key_idx)
+            self.insert(key,priority)
+        else:
+            key_idx = self.map[key]
+            self.heap[key_idx] = (priority,key)
+            self._make_heap(key_idx)
 
     def print(self):
         print(f"heap => {self.heap}")
