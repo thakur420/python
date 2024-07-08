@@ -2,7 +2,7 @@ from glob_lit import Lit
 
 class Any:
     def __init__(self, rest=None) -> None:
-        self.rest = None
+        self.rest = rest
 
     def match(self, text, start=0):
         if self.rest is None:
