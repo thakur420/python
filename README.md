@@ -17,16 +17,15 @@ Each folder focuses on a specific topic or learning area.
 ### 2. `Software Design by Example`
 - Illustrates **software design concepts** with real-world examples.
 - Includes:
-  - Design patterns
-  - UML diagrams
-  - Architecture examples
+  - Class and Object Implementation using dict
+  - Find Duplicate in files
+  - Pattern Matching
 
 ### 3. `Software Tools`
 - Contains tools, scripts, or utilities that assist in **software development**.
-- May include:
-  - Automation scripts
-  - Productivity tools
-  - Useful Python or Bash utilities
+  - Basic `http` server implementation
+  - Basic Git implementation
+  
 
 ### 4. `mastering-python-design`
 - Focused on **Python programming best practices** and advanced features.
@@ -41,7 +40,7 @@ Each folder focuses on a specific topic or learning area.
   - Data types and structures
   - Functions and modules
   - Exception handling
-  - File I/O and scripting
+  - Iterator and Generator
 
 ---
 
